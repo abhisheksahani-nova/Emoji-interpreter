@@ -29,6 +29,7 @@ export default function App() {
   }
 
   function clickHandler(singleEmoji) {
+    setEmoji(singleEmoji);
     var emojiMeaning = emojiDictionary[singleEmoji];
     setMeaning(emojiMeaning);
   }
