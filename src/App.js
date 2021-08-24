@@ -17,12 +17,17 @@ export default function App() {
 
   function changeHandler(event) {
     var emojiMeaning = emojiDictionary[event.target.value];
-    console.log(emojiMeaning);
+
     if (emojiMeaning) {
       setMeaning(emojiMeaning);
     } else {
       setMeaning("failure to recognise this emoji");
     }
+  }
+
+  function clickHandler(singleEmoji) {
+    var emojiMeaning = emojiDictionary[singleEmoji];
+    setMeaning(emojiMeaning);
   }
 
   return (
@@ -36,8 +41,18 @@ export default function App() {
         {meaning}
       </div>
       <ul>
-        {emojiArray.map((singleEmoji) => {
-          return <li> {singleEmoji} </li>;
+        {emojiArray.map((singleEmoji, index) => {
+          return (
+            <li
+              key={index}
+              onClick={() => {
+                clickHandler(singleEmoji);
+              }}
+            >
+              {" "}
+              {singleEmoji}{" "}
+            </li>
+          );
         })}
       </ul>
     </div>
