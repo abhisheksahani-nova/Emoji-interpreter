@@ -10,6 +10,8 @@ var emojiDictionary = {
   "😑": "Expressionless Face"
 };
 
+var emojiArray = Object.keys(emojiDictionary);
+
 export default function App() {
   const [meaning, setMeaning] = useState("translation will appear here..");
 
@@ -27,7 +29,17 @@ export default function App() {
     <div className="App">
       <h1>Inside out</h1>
       <input onChange={changeHandler} placeholder="Search your emoji" />
-      <div style={{ paddingTop: "15px", paddingBottom: "20px" }}>{meaning}</div>
+      <div
+        className="outputDiv"
+        style={{ paddingTop: "15px", paddingBottom: "20px" }}
+      >
+        {meaning}
+      </div>
+      <ul>
+        {emojiArray.map((singleEmoji) => {
+          return <li> {singleEmoji} </li>;
+        })}
+      </ul>
     </div>
   );
 }

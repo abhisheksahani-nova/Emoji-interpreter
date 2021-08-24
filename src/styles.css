@@ -7,3 +7,16 @@ input {
   width: 60%;
   padding: 15px;
 }
+
+.outputDiv {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+ul {
+  display: inline;
+}
+
+li {
+  display: inline;
+}
